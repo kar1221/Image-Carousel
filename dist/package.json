@@ -1,0 +1,12 @@
+{
+  "name": "image-carousel",
+  "version": "1.0.0",
+  "description": "An assignment from T.O.P",
+  "main": "image-carousel.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["T.O.P", "Image Carousel"],
+  "author": "kar1221 <khyeong191@gmail.com>",
+  "license": "MIT"
+}
