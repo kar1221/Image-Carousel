@@ -42,6 +42,7 @@ carousel.StopAutoplay();
 	-   Set to `true` to enable looping, or `false` to disable it.
 
 ### Customizing Style:
+**Carousel Container and Navigation Buttons**
 To customize the style of the image carousel, you can use the following class names in your CSS or SCSS files:
 
 -   `.image-carousel__container`: Styles the container of the carousel images.
@@ -63,5 +64,38 @@ To change the color and size of the navigation buttons:
   color: #333;
   font-size: 24px;
   /* Add more styles as needed */
+}
+```
+
+**Navigation Dots**
+To style the navigation dots in the image carousel, you can use the following class names and container structure:
+
+```scss
+/* Styles for the navigation dots container */
+.image-carousel__navigation-dots--container {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1.25rem;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+/* Styles for each navigation dot */
+.image-carousel__navigation-dot {
+  width: 12px;
+  aspect-ratio: 1 / 1;
+  background: white;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+/* Style for the active navigation dot */
+.image-carousel__navigation-dot.active {
+  background: #fff; /* Customize the active dot color as needed */
 }
 ```
