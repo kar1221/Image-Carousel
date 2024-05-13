@@ -1,6 +1,15 @@
 import { defineConfig } from "vite";
-import tsConfigPath from "vite-tsconfig-paths";
+import {resolve} from "path";
+import dts from "vite-plugin-dts"
 
 export default defineConfig({
-  plugins: [tsConfigPath()],
-})
+  build: {
+    lib: {
+      entry: resolve(__dirname, "./src/ImageCarousel/ImageCarousel.ts"),
+      name: "ImageCarousel",
+      fileName: "image-carousel",
+      formats: ["es"],
+    }
+  },
+  plugins: [dts()],
+});
