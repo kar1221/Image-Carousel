@@ -1,6 +1,22 @@
 # Image Carousel
 An assignment from The Odin Project.
 
+### Import:
+
+**Import via HTML**
+Add these lines in your html head tag:
+```html
+<script src="node_modules/image-carousel/image-carousel.js"></script>
+<link rel="stylesheet" href="node_modules/image-carousel/style.css">
+```
+
+**Import via Javascript (Webpack)**
+Add these lines in your javascript file:
+```js
+import ImageCarousel from "image-carousel";
+import "image-carousel/style.css";
+```
+
 ### Usage:
 ```typescript
 import ImageCarousel from './ImageCarousel';
@@ -73,25 +89,12 @@ To style the navigation dots in the image carousel, you can use the following cl
 ```scss
 /* Styles for the navigation dots container */
 .image-carousel__navigation-dots--container {
-  position: absolute;
-  display: flex;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-bottom: 1.25rem;
-  gap: 5px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: .5rem;
-  border-radius: .5rem;
+	/* Add your style here */
 }
 
 /* Styles for each navigation dot */
 .image-carousel__navigation-dot {
-  width: 12px;
-  aspect-ratio: 1 / 1;
-  background: white;
-  border-radius: 100%;
-  cursor: pointer;
+	/* Add your style here */
 }
 
 /* Style for the active navigation dot */
