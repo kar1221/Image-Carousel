@@ -37,6 +37,8 @@ class ImageCarousel {
 
   private timeoutID: NodeJS.Timeout | null = null;
 
+  private navigationDots: HTMLElement[] = [];
+
   constructor(root: HTMLElement, options?: Partial<Options>) {
     this.userOptions = { ...defaultOptions, ...options };
 
@@ -77,6 +79,7 @@ class ImageCarousel {
     if (this.userOptions.autoplay) this.StartAutoplay();
 
     this.initArrows();
+    this.InitNavigationDots();
   }
 
   private initArrows() {
@@ -94,6 +97,40 @@ class ImageCarousel {
 
     this.root.appendChild(prevButton);
     this.root.appendChild(nextButton);
+  }
+
+  private InitNavigationDots() {
+    const navigationDots = document.createElement<'div'>('div');
+
+    navigationDots.className = 'image-carousel__navigation-dots--container';
+
+    for(let i = 0; i < this.itemsCount; i += 1) {
+      const dot = document.createElement<'div'>('div');
+      dot.className = 'image-carousel__navigation-dot';
+
+      if (i === this.currentIndex) dot.classList.add('active');
+
+      this.navigationDots.push(dot);
+      dot.addEventListener("click", () => {
+        this.currentIndex = i;
+        this.UpdateNavigationDots();
+        this.SetTransformOffset();
+      });
+
+      navigationDots.appendChild(dot);
+    }
+
+    this.root.appendChild(navigationDots);
+  }
+
+  private UpdateNavigationDots() {
+    this.navigationDots.forEach((dot, index) => {
+      if (index === this.currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
   }
 
   public StartAutoplay() {
@@ -136,6 +173,7 @@ class ImageCarousel {
     }
 
     this.SetTransformOffset();
+    this.UpdateNavigationDots();
   }
 
   public PreviousPage() {
@@ -148,6 +186,7 @@ class ImageCarousel {
     }
 
     this.SetTransformOffset();
+    this.UpdateNavigationDots();
   }
 
   private HandleResize() {

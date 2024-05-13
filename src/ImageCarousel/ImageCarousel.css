@@ -8,7 +8,7 @@
   width: 5%;
   aspect-ratio: 1 / 1;
   font-size: 1.5rem;
-  background: #4f46e5;
+  background: rgba(0, 0, 0, 0.2);
   color: white;
   cursor: pointer;
   border-radius: 100%;
@@ -18,7 +18,7 @@
   transition: background 0.15s ease-in-out;
 
   &:hover {
-    background: #3730a3;
+    background: rgba(0, 0, 0, 0.6);
   }
 }
 
@@ -32,4 +32,29 @@
   top: 50%;
   right: 0;
   margin-right: 1.25rem;
+}
+
+.image-carousel__navigation-dots--container {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 1.25rem;
+  gap: 5px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: .5rem;
+  border-radius: .5rem;
+
+  .image-carousel__navigation-dot {
+    width: 12px;
+    aspect-ratio: 1 / 1;
+    background: white;
+    border-radius: 100%;
+    cursor: pointer;
+
+    &.active {
+      background: #4CAF50;
+    }
+  }
 }
